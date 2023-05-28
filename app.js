@@ -1,7 +1,7 @@
-const express = require('express');
-const api = require('./routes/apiRoutes');
-const app = express();
-const port = 5000;
+const express = require('express'); // Importing the Express framework
+const api = require('./routes/apiRoutes'); // Importing routes
+const app = express(); // Creating Express application
+const port = 5000; // Setting the port number for the server
 
 // Configure API routes
 api(app);
