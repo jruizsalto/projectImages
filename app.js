@@ -1,3 +1,17 @@
+const express = require('express');
+const api = require('./routes/apiRoutes');
+const app = express();
+const port = 5000;
+
+// Configure API routes
+api(app);
+
+// Start the server
+app.listen(port, () => {
+    console.log('APP running on port: ' + port);
+});
+
+/*
 const express = require('express');  // Importing the Express framework
 const multer = require('multer');  // Importing the Multer library for handling file uploads
 const sharp = require('sharp'); //Importing the Sharp Library for resize images
@@ -45,3 +59,4 @@ app.post('/task', upload.single('img'), async function (req, res) {
 app.listen(port, () => {
     console.log('APP running on port: ' + port);
 });
+*/
