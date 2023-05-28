@@ -2,8 +2,8 @@ const functions = require('../controllers/functions'); // Importing the 'functio
 
 // Function to create routes
 const createRoutes = (app) => {
-    app.post('/task', functions.resizeImage);
-    app.get('/task/:taskId', functions.taskStatus);
+    app.post('/task', functions.resizeImage); // Route for image processing
+    app.get('/task/:taskId', functions.taskStatus); // Route that will return the processing status
 };
 
 // Export function
