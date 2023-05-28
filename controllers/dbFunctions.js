@@ -13,7 +13,7 @@ async function connectToDB() {
         });
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
-        throw new Error(error);
+        throw error;
     };
 };
 
@@ -22,10 +22,9 @@ async function saveImages(data) {
     try {
         const document = new schemas.Images(data);
         const savedDocument = await document.save();
-        //console.log('Saved document:', savedDocument);
     } catch (error) {
         console.error('Error saving image:', error);
-        throw new Error(error);
+        throw error;
     };
 };
 
@@ -37,7 +36,7 @@ async function saveTasks(data) {
         return savedDocument;
     } catch (error) {
         console.error('Error saving task:', error);
-        throw new Error(error);
+        throw error;
     };
 };
 
@@ -52,10 +51,9 @@ async function getTask(id) {
         let taskInfo = { task: documentTask, images: documentsImage };
 
         return taskInfo;
-        //console.log('Found documents:', documents);
     } catch (error) {
         console.error('Error getting documents:', error);
-        throw new Error(error);
+        throw error;
     }
 }
 // Function to update a task from the database
@@ -65,15 +63,15 @@ async function updateTask(id) {
         await schemas.Tasks.findByIdAndUpdate(id, { $currentDate: { updateTimestamp: true } });
     } catch (error) {
         console.error('Error updating task:', error);
-        throw new Error(error);
+        throw error;
     };
 };
 
 // Export functions
 module.exports = {
-    connectToDB, 
-    saveImages, 
-    saveTasks, 
-    getTask, 
-    updateTask 
+    connectToDB,
+    saveImages,
+    saveTasks,
+    getTask,
+    updateTask
 };
